@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax Burger Co. - Kestel / Bursa | En Lezzetli Burgerler</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b00',
+                            darkOrange: '#e65c00',
+                            lightOrange: '#fff4eb',
+                            amber: '#ff9d00',
+                            black: '#121212',
+                            darkGray: '#1e1e24',
+                            gray: '#2d2d35',
+                            softGray: '#f8f9fa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'flame': 'flame 1.5s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(255, 107, 0, 0.4)' },
+                            '50%': { boxShadow: '0 0 30px rgba(255, 107, 0, 0.8)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        flame: {
+                            '0%': { transform: 'scale(1) rotate(-2deg)' },
+                            '100%': { transform: 'scale(1.1) rotate(2deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #121212;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism effects */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(235, 235, 240, 0.8);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 80% 20%, rgba(255, 107, 0, 0.08) 0%, rgba(255, 255, 255, 0) 60%),
+                        radial-gradient(circle at 10% 90%, rgba(255, 157, 0, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff6b00;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e65c00;
+        }
+
+        .orange-gradient-text {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff9d00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .orange-gradient-bg {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+        }
+
+        .orange-gradient-bg:hover {
+            background: linear-gradient(135deg, #e65c00 0%, #ff7700 100%);
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-black antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-black text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-brand-orange">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+            </span>
+            <strong>Şu an Açık!</strong>
+        </span>
+        <span class="hidden sm:inline">|</span>
+        <span>Çalışma Saatleri: 11:00 - 21:00</span>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline text-gray-300"><i class="fa-solid fa-location-dot text-brand-orange mr-1"></i> Yeni, Fatih Cd. No:27 Kestel/Bursa</span>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                        <i class="fa-solid fa-burger text-brand-orange text-2xl group-hover:animate-bounce"></i>
+                        <div class="absolute -bottom-1 -right-1 text-[10px] text-amber-400">
+                            <i class="fa-solid fa-fire animate-flame"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-brand-black flex items-center gap-1">
+                            Relax <span class="orange-gradient-text">Burger</span>
+                        </span>
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block -mt-1">Co. • Kestel</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm">
+                    <a href="#hero" class="text-brand-black hover:text-brand-orange transition-colors">Ana Sayfa</a>
+                    <a href="#menu" class="text-gray-600 hover:text-brand-orange transition-colors">Menü</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-orange transition-colors">Hakkımızda</a>
+                    <a href="#reviews" class="text-gray-600 hover:text-brand-orange transition-colors">Yorumlar</a>
+                    <a href="#contact" class="text-gray-600 hover:text-brand-orange transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Quick Action Buttons Header -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="tel:05427902642" class="px-4 py-2.5 rounded-xl border-2 border-brand-black text-brand-black hover:bg-brand-black hover:text-white transition-all duration-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-orange"></i>
+                        <span>0542 790 26 42</span>
+                    </a>
+                    <a href="https://wa.me/905427902642?text=Merhaba,%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" class="px-4 py-2.5 rounded-xl orange-gradient-bg text-white hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Sipariş Ver</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex sm:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-brand-black hover:text-brand-orange p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#hero" class="block px-3 py-2 rounded-md font-semibold text-brand-black hover:bg-brand-lightOrange hover:text-brand-orange">Ana Sayfa</a>
+            <a href="#menu" class="block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-lightOrange hover:text-brand-orange">Menü</a>
+            <a href="#about" class="block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-lightOrange hover:text-brand-orange">Hakkımızda</a>
+            <a href="#reviews" class="block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-lightOrange hover:text-brand-orange">Yorumlar</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-lightOrange hover:text-brand-orange">İletişim</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <a href="tel:05427902642" class="w-full text-center py-3 rounded-xl border border-brand-black text-brand-black font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-orange"></i> Hemen Ara (0542 790 26 42)
+                </a>
+                <a href="https://wa.me/905427902642?text=Merhaba,%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" class="w-full text-center py-3 rounded-xl orange-gradient-bg text-white font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp İle Sipariş
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative py-12 md:py-24 hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Google Rating Badge -->
+                    <div class="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm animate-float">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-xs font-bold text-brand-black"><strong>4,9</strong> / 5.0 Google Değerlendirmesi</span>
+                        <span class="text-xs text-gray-400">(17 Yorum)</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-brand-black leading-tight">
+                        Kestel'in En Lezzetli & <span class="orange-gradient-text underline decoration-brand-orange/30">Rahat</span> Burgeri!
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        %100 taze dana eti, özel soslar ve sıcacık patates kızartması eşliğinde eşsiz bir fast food deneyimi. Acıktığında strese girme, <strong>Relax Burger Co.</strong> ile keyfine bak!
+                    </p>
+
+                    <!-- Info badges -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs font-bold text-gray-700">
+                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-gray-100 shadow-sm">
+                            <i class="fa-solid fa-utensils text-brand-orange"></i>
+                            <span>Fast Food Lokantası</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-gray-100 shadow-sm">
+                            <i class="fa-solid fa-wallet text-brand-orange"></i>
+                            <span>₺200 – ₺400 / kişi başı</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-gray-100 shadow-sm">
+                            <i class="fa-solid fa-clock text-brand-orange"></i>
+                            <span>Her gün 11:00 - 21:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to action buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="https://wa.me/905427902642?text=Merhaba,%20men%C3%BCn%C3%BCzden%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl orange-gradient-bg text-white font-extrabold text-base shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Hemen WhatsApp'tan Sipariş Et</span>
+                        </a>
+                        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-black text-white hover:bg-gray-800 font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Menüyü İncele</span>
+                            <i class="fa-solid fa-arrow-down text-brand-orange"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Burger Hero Visual -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                        <!-- Decorative glow -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+
+                        <!-- Main Burger Visual Container -->
+                        <div class="relative rounded-3xl bg-brand-black p-4 shadow-2xl overflow-hidden border-4 border-white">
+                            <div class="relative rounded-2xl overflow-hidden aspect-square bg-gradient-to-b from-brand-darkGray to-brand-black flex items-center justify-center">
+                                <!-- Burger SVG Illustration with animations -->
+                                <svg class="w-4/5 h-4/5 hover:scale-110 transition-transform duration-500 drop-shadow-[0_15px_15px_rgba(255,107,0,0.3)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Top Bun -->
+                                    <path d="M30 90C30 50 60 30 100 30C140 30 170 50 170 90H30Z" fill="#E67E22"/>
+                                    <!-- Sesame seeds -->
+                                    <circle cx="70" cy="50" r="2.5" fill="#FDEBD0"/>
+                                    <circle cx="100" cy="45" r="2.5" fill="#FDEBD0"/>
+                                    <circle cx="130" cy="55" r="2.5" fill="#FDEBD0"/>
+                                    <circle cx="85" cy="65" r="2.5" fill="#FDEBD0"/>
+                                    <circle cx="115" cy="68" r="2.5" fill="#FDEBD0"/>
+                                    <!-- Lettuce -->
+                                    <path d="M25 90C35 98 45 90 55 98C65 90 75 98 85 90C95 98 105 90 115 98C125 90 135 98 145 90C155 98 165 90 175 90" stroke="#27AE60" stroke-width="8" stroke-linecap="round"/>
+                                    <!-- Cheese melt -->
+                                    <path d="M30 100L40 105L50 100L70 120L90 100L130 125L150 100L170 100V108H30V100Z" fill="#F1C40F"/>
+                                    <!-- Meat Patty -->
+                                    <rect x="25" y="108" width="150" height="22" rx="11" fill="#5D4037"/>
+                                    <line x1="40" y1="115" x2="160" y2="115" stroke="#3E2723" stroke-width="3" stroke-dasharray="8 4"/>
+                                    <!-- Tomato Slice -->
+                                    <rect x="35" y="132" width="130" height="10" rx="5" fill="#E74C3C"/>
+                                    <!-- Bottom Bun -->
+                                    <path d="M32 144H168C168 144 165 170 100 170C35 170 32 144 32 144Z" fill="#D35400"/>
+                                </svg>
+
+                                <!-- Floating Offer Badge -->
+                                <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-gray-100 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-lightOrange text-brand-orange flex items-center justify-center font-black">
+                                        <i class="fa-solid fa-fire text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-bold uppercase">Kestel Özel</p>
+                                        <p class="text-sm font-extrabold text-brand-black">%100 Dana Eti</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK INFO STATS BAR -->
+    <section class="bg-brand-black text-white py-10 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-black text-brand-orange">4.9 ★</p>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Google Müşteri Puanı</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-black text-brand-orange">17+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Gerçek Müşteri Yorumu</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-black text-brand-orange">₺200-400</p>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Uygun Fiyat Aralığı</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-black text-brand-orange">Kestel</p>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Bursa Merkez Konum</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MENU SECTION WITH WHATSAPP CART -->
+    <section id="menu" class="py-20 bg-brand-softGray relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest bg-brand-lightOrange px-4 py-1.5 rounded-full inline-block mb-3 border border-brand-orange/20">
+                    Özenle Hazırlanan Lezzetler
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-black tracking-tight">
+                    Relax Burger <span class="orange-gradient-text">Menüsü</span>
+                </h2>
+                <p class="text-gray-600 mt-4 text-base">
+                    Aşağıdaki menümüzden seçiminizi yapıp doğrudan WhatsApp üzerinden hızlıca sipariş verebilirsiniz.
+                </p>
+
+                <!-- Menu Category Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8" id="menu-tabs">
+                    <button onclick="filterMenu('all')" class="menu-tab-btn active bg-brand-black text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        Tümü
+                    </button>
+                    <button onclick="filterMenu('burger')" class="menu-tab-btn bg-white text-gray-700 hover:text-brand-orange border border-gray-200 px-5 py-2.5 rounded-xl font-bold text-sm transition-all">
+                        <i class="fa-solid fa-burger mr-1.5 text-brand-orange"></i> Burgerler
+                    </button>
+                    <button onclick="filterMenu('fries')" class="menu-tab-btn bg-white text-gray-700 hover:text-brand-orange border border-gray-200 px-5 py-2.5 rounded-xl font-bold text-sm transition-all">
+                        <i class="fa-solid fa-box-archive mr-1.5 text-brand-orange"></i> Yan Lezzetler
+                    </button>
+                    <button onclick="filterMenu('drink')" class="menu-tab-btn bg-white text-gray-700 hover:text-brand-orange border border-gray-200 px-5 py-2.5 rounded-xl font-bold text-sm transition-all">
+                        <i class="fa-solid fa-bottle-water mr-1.5 text-brand-orange"></i> İçecekler
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- MENU ITEMS GRID (8 Cols) -->
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6" id="menu-container">
+                    
+                    <!-- Item 1 -->
+                    <div class="menu-item burger glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between border-t-4 border-t-brand-orange">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-burger text-6xl text-brand-orange opacity-90 group-hover:scale-110 transition-transform"></i>
+                                <span class="absolute top-3 right-3 bg-brand-orange text-white text-xs font-black px-2.5 py-1 rounded-lg">Çok Satan</span>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Relax Classic Burger</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺240</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">150g Dana köfte, karamelize soğan, cheddar peyniri, özel Relax sos, kıvırcık marul, turşu.</p>
+                        </div>
+                        <button onclick="addToCart('Relax Classic Burger', 240)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="menu-item burger glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between border-t-4 border-t-brand-orange">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-fire text-6xl text-amber-500 opacity-90"></i>
+                                <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">Acılı</span>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Smoky BBQ Double</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺320</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">2x 120g Dana köfte, çift cheddar, füme kaburga, BBQ sos, jalapeño biberi ve çıtır soğan halkası.</p>
+                        </div>
+                        <button onclick="addToCart('Smoky BBQ Double', 320)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="menu-item burger glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-cheese text-6xl text-amber-400 opacity-90"></i>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Cheddar Bomb Burger</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺280</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">180g Dana köfte, eritilmiş bol cheddar şelalesi, çıtır pastırma, meksika sosu.</p>
+                        </div>
+                        <button onclick="addToCart('Cheddar Bomb Burger', 280)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="menu-item fries glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-box-archive text-6xl text-brand-orange opacity-90"></i>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Baharatlı Çıtır Patates</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺90</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">Özel baharat harmanlı büyük boy elma dilim çıtır patates kızartması ve ikili sos.</p>
+                        </div>
+                        <button onclick="addToCart('Baharatlı Çıtır Patates', 90)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="menu-item fries glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-stroopwafel text-6xl text-amber-500 opacity-90"></i>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Çıtır Soğan Halkası (8'li)</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺80</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">Altın sarısı panelenmiş 8 adet ev yapımı çıtır soğan halkası.</p>
+                        </div>
+                        <button onclick="addToCart('Çıtır Soğan Halkası', 80)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="menu-item drink glass-card rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 rounded-xl bg-gradient-to-br from-gray-900 to-brand-darkGray flex items-center justify-center relative overflow-hidden mb-4">
+                                <i class="fa-solid fa-bottle-water text-6xl text-blue-400 opacity-90"></i>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-extrabold text-brand-black">Kutu İçecekler (330ml)</h3>
+                                <span class="text-lg font-black text-brand-orange ml-2">₺45</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-2 line-clamp-2">Coca-Cola, Fanta, Sprite, Fuse Tea veya Ayran seçenekleriyle.</p>
+                        </div>
+                        <button onclick="addToCart('Kutu İçecek', 45)" class="mt-4 w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-orange text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Siparişe Ekle
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- WHATSAPP ORDER SUMMARY SIDEBAR (4 Cols) -->
+                <div class="lg:col-span-4 sticky top-28">
+                    <div class="bg-white rounded-3xl p-6 shadow-xl border-2 border-brand-orange/30">
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-lg orange-gradient-bg text-white flex items-center justify-center">
+                                    <i class="fa-solid fa-basket-shopping text-sm"></i>
+                                </div>
+                                <h3 class="font-black text-brand-black text-lg">Sipariş Sepetiniz</h3>
+                            </div>
+                            <span id="cart-count" class="bg-brand-lightOrange text-brand-orange font-black text-xs px-2.5 py-1 rounded-full border border-brand-orange/20">0 Ürün</span>
+                        </div>
+
+                        <!-- Order Items List -->
+                        <div id="cart-items" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+                            <p id="empty-cart-msg" class="text-center text-gray-400 text-sm py-8 font-medium">
+                                Sepetiniz henüz boş.<br>Menüden ürün ekleyebilirsiniz.
+                            </p>
+                        </div>
+
+                        <!-- Total & Action -->
+                        <div class="border-t border-gray-100 pt-4 mt-4 space-y-3">
+                            <div class="flex justify-between items-center text-sm font-semibold">
+                                <span class="text-gray-500">Toplam Tutar:</span>
+                                <span id="cart-total" class="text-2xl font-black text-brand-orange">₺0</span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="customer-note" class="block text-xs font-bold text-gray-700">Teslimat Adresi / Not:</label>
+                                <input type="text" id="customer-note" placeholder="Örn: Yeni Mah. Fatih Cd. No:12 (Zil 3)" class="w-full text-xs p-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-orange bg-gray-50">
+                            </div>
+
+                            <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled class="w-full py-4 rounded-xl bg-gray-300 text-gray-500 font-black text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-not-allowed">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>WhatsApp ile Tamamla</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="relative">
+                    <div class="rounded-3xl bg-brand-black p-8 text-white relative z-10 shadow-2xl overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-orange/20 rounded-full blur-2xl"></div>
+                        <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-2">Relax Burger Co. Hikayesi</span>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold mb-4 leading-snug">Kalite, Samimiyet ve Gerçek Lezzet Bir Arada!</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Bursa Kestel’de kapılarımızı açtığımız ilk günden itibaren amacımız basitti: Misafirlerimize sıradan bir fast food değil, ev sıcaklığında rahat (Relax) bir atmosferde hazırlanan en kaliteli burgerleri sunmak.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-800">
+                            <div>
+                                <h4 class="text-brand-orange font-extrabold text-lg">%100 Taze Dana</h4>
+                                <p class="text-xs text-gray-400">Katkısız, günlük çekim özel kıyma.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-orange font-extrabold text-lg">Özel Ekmekler</h4>
+                                <p class="text-xs text-gray-400">Her gün taptaze pişen artizan ekmekler.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative back frame -->
+                    <div class="absolute inset-0 bg-brand-orange rounded-3xl transform translate-x-4 translate-y-4 -z-0"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest bg-brand-lightOrange px-4 py-1.5 rounded-full inline-block border border-brand-orange/20">
+                        Neden Relax Burger?
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-brand-black">
+                        Her Isırıkta Hissedilen <span class="orange-gradient-text">Fark</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl orange-gradient-bg text-white flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-base">Özel Sos Tariflerimiz</h4>
+                                <p class="text-gray-600 text-xs mt-1">Şeflerimizin gizli reçeteleriyle hazırlanan Relax Sos ve Trüflü Mayonez ile lezzeti katlıyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl bg-brand-black text-brand-orange flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-bolt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-base">Hızlı & Sıcak Servis</h4>
+                                <p class="text-gray-600 text-xs mt-1">Siparişleriniz anında hazırlanır, çıtırlığını kaybetmeden masanıza veya kapınıza ulaşır.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl orange-gradient-bg text-white flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-face-smile text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-base">Müşteri Memnuniyeti (4.9 Yıldız)</h4>
+                                <p class="text-gray-600 text-xs mt-1">Google haritalarındaki 4.9 yüksek puanımızla Kestel'in en çok sevilen burger durağıyız.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS SECTION -->
+    <section id="reviews" class="py-20 bg-brand-softGray border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest bg-brand-lightOrange px-4 py-1.5 rounded-full inline-block mb-3 border border-brand-orange/20">
+                    Gerçek Deneyimler
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-black">
+                    Müşterilerimiz <span class="orange-gradient-text">Ne Diyor?</span>
+                </h2>
+                
+                <!-- Big Score Header -->
+                <div class="flex items-center justify-center gap-4 mt-6">
+                    <span class="text-5xl font-black text-brand-black">4.9</span>
+                    <div class="text-left">
+                        <div class="flex text-amber-400 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-gray-500 font-bold">Google Haritalar (17 Yorum)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Review Card 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative flex flex-col justify-between hover:shadow-xl transition-shadow">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-orange text-white font-bold flex items-center justify-center text-sm">
+                                    AH
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-black">Ahmet H.</h4>
+                                    <p class="text-[10px] text-gray-400">1 hafta önce</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-xs leading-relaxed italic">
+                            "Kestel'de yediğim en taze burgerdi. Köftesinin lezzeti ve ekmeğin yumuşaklığı harikaydı. Patatesler de sıcacık geldi. Kesinlikle tekrar sipariş vereceğim!"
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-50 flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+                        <i class="fa-brands fa-google text-brand-orange"></i> Google Doğrulanmış Müşteri
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative flex flex-col justify-between hover:shadow-xl transition-shadow">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-black text-white font-bold flex items-center justify-center text-sm">
+                                    SE
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-black">Selin E.</h4>
+                                    <p class="text-[10px] text-gray-400">2 hafta önce</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-xs leading-relaxed italic">
+                            "Mekan atmosferi aşırı samimi ve adı gibi tam 'Relax'. Çalışanlar çok güler yüzlü. Cheddar Bomb burger tam bir lezzet şöleni!"
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-50 flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+                        <i class="fa-brands fa-google text-brand-orange"></i> Google Doğrulanmış Müşteri
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative flex flex-col justify-between hover:shadow-xl transition-shadow">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-orange text-white font-bold flex items-center justify-center text-sm">
+                                    MK
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-black">Murat K.</h4>
+                                    <p class="text-[10px] text-gray-400">1 ay önce</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-xs leading-relaxed italic">
+                            "Fiyat/performans olarak Kestel bölgesinde tek geçerim. Malzemeleri çok kaliteli, sosları bol tutuyorlar. Kurye arkadaş da çok hızlı getirdi."
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-50 flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+                        <i class="fa-brands fa-google text-brand-orange"></i> Google Doğrulanmış Müşteri
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION SECTION -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details (5 Cols) -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest bg-brand-lightOrange px-4 py-1.5 rounded-full inline-block mb-3 border border-brand-orange/20">
+                            Bize Ulaşın
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-brand-black">
+                            Sizi Ağırlamaktan <span class="orange-gradient-text">Mutluluk Duyarız</span>
+                        </h2>
+                        <p class="text-gray-600 text-sm mt-3">
+                            Sipariş vermek, yol tarifi almak veya merak ettiğiniz her şey için bize telefon veya WhatsApp hattımızdan doğrudan ulaşabilirsiniz.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Address -->
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl bg-brand-black text-brand-orange flex items-center justify-center font-bold shrink-0 text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-sm uppercase">Adres</h4>
+                                <p class="text-gray-700 font-semibold text-sm mt-1">Yeni, Fatih Cd. No:27, 16000 Kestel / Bursa</p>
+                                <p class="text-gray-400 text-xs mt-0.5">(Çilek Kafe Yakınları)</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl orange-gradient-bg text-white flex items-center justify-center font-bold shrink-0 text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-sm uppercase">Telefon Hattı</h4>
+                                <a href="tel:05427902642" class="text-brand-black font-black text-base hover:text-brand-orange transition-colors mt-1 block">
+                                    0542 790 26 42
+                                </a>
+                                <p class="text-xs text-gray-500">Tıkla ve doğrudan ara</p>
+                            </div>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-softGray border border-gray-100">
+                            <div class="w-12 h-12 rounded-xl bg-brand-black text-brand-orange flex items-center justify-center font-bold shrink-0 text-xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-black text-sm uppercase">Çalışma Saatleri</h4>
+                                <p class="text-emerald-600 font-bold text-sm mt-1 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Açık • Kapanış Saati: 21:00
+                                </p>
+                                <p class="text-xs text-gray-500 mt-0.5">Haftanın 7 günü hizmetinizdeyiz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a href="https://maps.google.com/?q=Yeni,+Fatih+Cd.+No:27,+16000+Kestel/Bursa" target="_blank" class="flex-1 py-3.5 px-4 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-wider text-center hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-diamond-turn-right text-brand-orange"></i> Yol Tarifi Al
+                        </a>
+                        <a href="https://wa.me/905427902642" target="_blank" class="flex-1 py-3.5 px-4 rounded-xl orange-gradient-bg text-white font-bold text-xs uppercase tracking-wider text-center shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Mesaj
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Styled Map (7 Cols) -->
+                <div class="lg:col-span-7">
+                    <div class="h-full min-h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative bg-gray-100">
+                        <!-- Embedded Google Map -->
+                        <iframe 
+                            class="w-full h-full min-h-[400px] border-0 filter grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.243574880521!2d29.2100!3d40.1900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca3f56b2e15555%3A0x123456789abcdef!2sYeni%2C%20Fatih%20Cd.%20No%3A27%2C%2016000%20Kestel%2FBursa!5e0!3m2!1str!2str!4v1680000000000!5m2!1str!2str" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <!-- Floating Map Card Overlay -->
+                        <div class="absolute bottom-6 left-6 right-6 sm:right-auto bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-gray-100 max-w-xs">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-brand-black text-brand-orange flex items-center justify-center font-bold shrink-0">
+                                    <i class="fa-solid fa-burger"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-extrabold text-brand-black text-sm">Relax Burger Co.</h4>
+                                    <p class="text-xs text-gray-500">Fatih Cd. No:27, Kestel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl orange-gradient-bg flex items-center justify-center">
+                            <i class="fa-solid fa-burger text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-black tracking-tight text-white">
+                            Relax <span class="orange-gradient-text">Burger</span> Co.
+                        </span>
+                    </div>
+                    <p class="text-gray-400 text-xs max-w-sm leading-relaxed">
+                        Kestel Bursa'da lezzetin ve rahatlığın adresi. taptaze malzemeler ve ustalıkla hazırlanan burger tariflerimizle hizmetinizdeyiz.
+                    </p>
+                    <div class="flex items-center gap-3 text-gray-400 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-gray-900 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-gray-900 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/905427902642" target="_blank" class="w-9 h-9 rounded-lg bg-gray-900 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-brand-orange mb-4">Hızlı Bağlantılar</h4>
+                    <ul class="space-y-2 text-xs text-gray-400 font-medium">
+                        <li><a href="#hero" class="hover:text-white transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#menu" class="hover:text-white transition-colors">Lezzet Menümüz</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition-colors">Müşteri Yorumları</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">İletişim & Konum</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Summary -->
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-brand-orange mb-4">İletişim Bilgileri</h4>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-brand-orange mt-0.5"></i>
+                            <span>Yeni, Fatih Cd. No:27, 16000 Kestel/Bursa</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-orange"></i>
+                            <a href="tel:05427902642" class="hover:text-white">0542 790 26 42</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-brand-orange"></i>
+                            <span>11:00 - 21:00 (Her gün)</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>© 2026 Relax Burger Co. Tüm hakları saklıdır.</p>
+                <p class="flex items-center gap-1">
+                    Kestel / Bursa • Lezzetli Fast Food Lokantası
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CONTACT WIDGETS (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- Floating Phone Call -->
+        <a href="tel:05427902642" title="Hemen Ara" class="w-14 h-14 rounded-full bg-brand-black text-white border-2 border-brand-orange shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group">
+            <i class="fa-solid fa-phone text-xl text-brand-orange group-hover:animate-bounce"></i>
+        </a>
+        
+        <!-- Floating WhatsApp -->
+        <a href="https://wa.me/905427902642?text=Merhaba,%20Relax%20Burger%20hakk%C4%B1nda%20bilgi%20almak%20ve%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" title="WhatsApp Sipariş" class="w-14 h-14 rounded-full bg-emerald-500 text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform relative animate-pulse-glow">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-brand-orange rounded-full border-2 border-white flex items-center justify-center text-[9px] font-bold">1</span>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cart State & Interactive Order Logic
+        let cart = [];
+
+        function addToCart(itemName, itemPrice) {
+            const existingIndex = cart.findIndex(item => item.name === itemName);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ name: itemName, price: itemPrice, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(itemName) {
+            const existingIndex = cart.findIndex(item => item.name === itemName);
+            if (existingIndex > -1) {
+                if (cart[existingIndex].qty > 1) {
+                    cart[existingIndex].qty -= 1;
+                } else {
+                    cart.splice(existingIndex, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCountEl = document.getElementById('cart-count');
+            const cartTotalEl = document.getElementById('cart-total');
+            const whatsappBtn = document.getElementById('send-whatsapp-btn');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <p id="empty-cart-msg" class="text-center text-gray-400 text-sm py-8 font-medium">
+                        Sepetiniz henüz boş.<br>Menüden ürün ekleyebilirsiniz.
+                    </p>`;
+                cartCountEl.innerText = '0 Ürün';
+                cartTotalEl.innerText = '₺0';
+                whatsappBtn.disabled = true;
+                whatsappBtn.className = 'w-full py-4 rounded-xl bg-gray-200 text-gray-400 font-black text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-not-allowed';
+                return;
+            }
+
+            let html = '';
+            cart.forEach(item => {
+                totalQty += item.qty;
+                totalPrice += item.price * item.qty;
+
+                html += `
+                    <div class="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl border border-gray-100 text-xs">
+                        <div>
+                            <p class="font-extrabold text-brand-black">${item.name}</p>
+                            <p class="text-brand-orange font-bold">₺${item.price} x ${item.qty} = ₺${item.price * item.qty}</p>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="removeFromCart('${item.name}')" class="w-6 h-6 rounded-md bg-gray-200 hover:bg-red-500 hover:text-white font-bold flex items-center justify-center transition-colors">
+                                -
+                            </button>
+                            <span class="font-black px-1.5">${item.qty}</span>
+                            <button onclick="addToCart('${item.name}', ${item.price})" class="w-6 h-6 rounded-md bg-brand-black hover:bg-brand-orange text-white font-bold flex items-center justify-center transition-colors">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            cartCountEl.innerText = `${totalQty} Ürün`;
+            cartTotalEl.innerText = `₺${totalPrice}`;
+
+            whatsappBtn.disabled = false;
+            whatsappBtn.className = 'w-full py-4 rounded-xl orange-gradient-bg text-white font-black text-sm uppercase tracking-wider shadow-lg hover:shadow-orange-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02]';
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) return;
+
+            const note = document.getElementById('customer-note').value.trim();
+            let totalPrice = 0;
+
+            let message = "Merhaba Relax Burger Co.! Sipariş vermek istiyorum:\n\n";
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                totalPrice += subtotal;
+                message += `• ${item.name} (${item.qty} Adet) - ₺${subtotal}\n`;
+            });
+
+            message += `\n*Toplam Tutar:* ₺${totalPrice}`;
+            if (note) {
+                message += `\n*Adres / Not:* ${note}`;
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/905427902642?text=${encodedMessage}`, '_blank');
+        }
+
+        // Category Menu Filter Logic
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-black', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-gray-700');
+            event.currentTarget.classList.add('bg-brand-black', 'text-white', 'shadow-md');
+
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
